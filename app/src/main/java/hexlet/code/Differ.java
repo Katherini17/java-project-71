@@ -12,8 +12,20 @@ public class Differ {
         Map<String, Object> data1 = getData(filePath1);
         Map<String, Object> data2 = getData(filePath2);
 
+        String diff = generateDiffLine(data1, data2);
+
+        return String.format("{%n%s%n}", diff);
+    }
+
+    private static Set<String> getKeys(Map<String, Object> data1, Map<String, Object> data2) {
         Set<String> keys = new HashSet<>(data1.keySet());
         keys.addAll(data2.keySet());
+
+        return keys;
+    }
+
+    private static String generateDiffLine(Map<String, Object> data1, Map<String, Object> data2) {
+        Set<String> keys = getKeys(data1, data2);
 
         String diff = keys.stream()
                 .sorted()
@@ -37,6 +49,6 @@ public class Differ {
                 })
                 .collect(Collectors.joining("\n"));
 
-        return String.format("{%n%s%n}", diff);
+        return diff;
     }
 }
