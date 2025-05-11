@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AppTest {
+class AppTest {
 
     private static Path filePath1;
     private static Path filePath2;
@@ -27,13 +27,13 @@ public class AppTest {
     }
 
     @BeforeAll
-    public static void preparePaths() throws Exception {
+    static void preparePaths() {
         filePath1 = getFixturePath("file1.json");
         filePath2 = getFixturePath("file2.json");
     }
 
     @Test
-    public void testJsonDiffGeneration() throws Exception {
+    void testJsonDiffGeneration() throws Exception {
         String expectedDiff = readFixtures("jsonDiff.txt");
         String actualDiff = Differ.generate(filePath1.toString(), filePath2.toString());
 
