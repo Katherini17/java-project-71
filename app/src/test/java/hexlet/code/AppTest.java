@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -35,7 +34,7 @@ public class AppTest {
 
     @Test
     public void testJsonDiffGeneration() throws Exception {
-        String expectedDiff = readFixtures("jsonDiff");
+        String expectedDiff = readFixtures("jsonDiff.txt");
         String actualDiff = Differ.generate(filePath1.toString(), filePath2.toString());
 
         assertEquals(expectedDiff, actualDiff);
