@@ -24,24 +24,24 @@ class AppTest {
                 .normalize();
     }
 
-    private static String readFixtures(String filename) throws IOException {
-        Path filePath = getFixturePath(filename);
+    private static String readFixtures(String fileName) throws IOException {
+        Path filePath = getFixturePath(fileName);
         return Files.readString(filePath).trim();
     }
 
     @BeforeAll
     static void preparePaths() {
-        jsonFilePath1 = getFixturePath("flat-file1.json");
-        jsonFilePath2 = getFixturePath("flat-file2.json");
+        jsonFilePath1 = getFixturePath("nested-file1.json");
+        jsonFilePath2 = getFixturePath("nested-file2.json");
 
-        yamlFilePath1 = getFixturePath("flat-file1.yml");
-        yamlFilePath2 = getFixturePath("flat-file2.yml");
+        yamlFilePath1 = getFixturePath("nested-file1.yml");
+        yamlFilePath2 = getFixturePath("nested-file2.yml");
 
     }
 
     @Test
     void testJsonDiffGeneration() throws Exception {
-        String expectedDiff = readFixtures("flat-diff.txt");
+        String expectedDiff = readFixtures("nested-diff.txt");
         String actualDiff = Differ.generate(jsonFilePath1.toString(), jsonFilePath2.toString());
 
         assertEquals(expectedDiff, actualDiff);
@@ -49,7 +49,7 @@ class AppTest {
 
     @Test
     void testYamlDiffGeneration() throws Exception {
-        String expectedDiff = readFixtures("flat-diff.txt");
+        String expectedDiff = readFixtures("nested-diff.txt");
         String actualDiff = Differ.generate(yamlFilePath1.toString(), yamlFilePath2.toString());
 
         assertEquals(expectedDiff, actualDiff);
