@@ -27,6 +27,7 @@ public class Parser {
                 objectMapper = new ObjectMapper();
                 break;
             case "yml":
+            case "yaml":
                 objectMapper = new ObjectMapper(new YAMLFactory());
                 break;
             default:
