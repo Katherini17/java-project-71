@@ -10,7 +10,6 @@ import java.util.Map;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import org.w3c.dom.ls.LSOutput;
 
 public class Parser {
     private static ObjectMapper objectMapper;

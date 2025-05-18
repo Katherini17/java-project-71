@@ -40,17 +40,17 @@ class AppTest {
     }
 
     @Test
-    void testJsonDiffGeneration() throws Exception {
+    void testJsonDiffGenerationInStylish() throws Exception {
         String expectedDiff = readFixtures("nested-diff.txt");
-        String actualDiff = Differ.generate(jsonFilePath1.toString(), jsonFilePath2.toString());
+        String actualDiff = Differ.generate(jsonFilePath1.toString(), jsonFilePath2.toString(), "stylish");
 
         assertEquals(expectedDiff, actualDiff);
     }
 
     @Test
-    void testYamlDiffGeneration() throws Exception {
+    void testYamlDiffGenerationInStylish() throws Exception {
         String expectedDiff = readFixtures("nested-diff.txt");
-        String actualDiff = Differ.generate(yamlFilePath1.toString(), yamlFilePath2.toString());
+        String actualDiff = Differ.generate(yamlFilePath1.toString(), yamlFilePath2.toString(), "stylish");
 
         assertEquals(expectedDiff, actualDiff);
     }
