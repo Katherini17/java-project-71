@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class Formatter {
 
-    public static String format(List<Map<String, String>> diff, String format) throws Exception {
+    public static String format(List<Map<String, Object>> diff, String format) throws Exception {
         switch (format) {
             case "stylish":
                 return formatStylish(diff);
@@ -16,12 +16,12 @@ public class Formatter {
         }
     }
 
-    private static String formatStylish(List<Map<String, String>> diff) {
+    private static String formatStylish(List<Map<String, Object>> diff) {
         String diffLine = diff.stream()
                 .map(dataValue -> {
-                    String key = dataValue.get("key");
-                    String status = dataValue.get("status");
-                    String value1 = dataValue.get("value1");
+                    String key = String.valueOf(dataValue.get("key"));
+                    String status = String.valueOf(dataValue.get("status"));
+                    String value1 = String.valueOf(dataValue.get("value1"));
 
                     String keyPart = String.format(" %s: ", key);
 
@@ -33,7 +33,7 @@ public class Formatter {
                         case "unchanged":
                             return String.format("   %s%s", keyPart, value1);
                         default:
-                            String value2 = dataValue.get("value2");
+                            String value2 = String.valueOf(dataValue.get("value2"));
                             return String.format("  -%s%s%n  +%s%s", keyPart, value1, keyPart, value2);
                     }
                 })
