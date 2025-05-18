@@ -36,7 +36,6 @@ class AppTest {
 
         yamlFilePath1 = getFixturePath("nested-file1.yml");
         yamlFilePath2 = getFixturePath("nested-file2.yml");
-
     }
 
     @Test
@@ -51,6 +50,22 @@ class AppTest {
     void testYamlDiffGenerationInStylish() throws Exception {
         String expectedDiff = readFixtures("nested-diff.txt");
         String actualDiff = Differ.generate(yamlFilePath1.toString(), yamlFilePath2.toString(), "stylish");
+
+        assertEquals(expectedDiff, actualDiff);
+    }
+
+    @Test
+    void testJsonDiffGenerationInPlain() throws Exception {
+        String expectedDiff = readFixtures("plain-diff.txt");
+        String actualDiff = Differ.generate(jsonFilePath1.toString(), jsonFilePath2.toString(), "plain");
+
+        assertEquals(expectedDiff, actualDiff);
+    }
+
+    @Test
+    void testYamlDiffGenerationInPlain() throws Exception {
+        String expectedDiff = readFixtures("plain-diff.txt");
+        String actualDiff = Differ.generate(yamlFilePath1.toString(), yamlFilePath2.toString(), "plain");
 
         assertEquals(expectedDiff, actualDiff);
     }
