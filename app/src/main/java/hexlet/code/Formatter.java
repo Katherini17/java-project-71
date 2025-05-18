@@ -41,4 +41,13 @@ public class Formatter {
 
         return String.format("{%n%s%n}", diffLine);
     }
+
+    private static Boolean isComplexValue(Object value) {
+        if (value == null || value instanceof String || value instanceof Number || value instanceof Boolean) {
+            return false;
+        }
+
+        return true;
+    }
 }
+
