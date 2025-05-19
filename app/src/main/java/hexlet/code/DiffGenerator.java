@@ -12,7 +12,7 @@ public class DiffGenerator {
 
         Set<String> keys = getKeys(data1, data2);
 
-         return keys.stream()
+        Map<String, Map<String, Object>> diff = keys.stream()
                 .collect(Collectors.toMap(key -> key, key -> {
 
                     if (!data1.containsKey(key)) {
@@ -31,6 +31,9 @@ public class DiffGenerator {
                     return getDataValue("changed", data1.get(key), data2.get(key));
 
                 }));
+
+        return new TreeMap<>(diff);
+
     }
 
     private static Map<String, Object> getDataValue(Object status, Object value) {
