@@ -14,13 +14,13 @@
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Katherini17_java-project-71&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=Katherini17_java-project-71)
 
 ### Flat files (default - stylish)
-Asciinema flat-json-differ: 
+Asciinema flat-differ-of-json-files: 
 https://asciinema.org/a/LsQTu3eu4AmX9k9PRMXJgdqbM
-Asciinema flat-yaml-differ: 
+Asciinema flat-differ-of-yaml-files: 
 https://asciinema.org/a/3zYCTemVJX9x8iGNocukZRq22
 
 ### Nested files (default - stylish)
-Aciinema nested-files-differ: 
+Aciinema nested-stylish-differ: 
 https://asciinema.org/a/JnuNgYOjLFu9xYmmomZJxu5yC
 
 
@@ -28,7 +28,9 @@ https://asciinema.org/a/JnuNgYOjLFu9xYmmomZJxu5yC
 Asciinema nested-plain-differ:
 https://asciinema.org/a/lYdalnS5ktneVvcXHQTGPetS0
 
-
+### Nested files (json)
+Asciinema nested-json-differ:
+https://asciinema.org/a/ySvWvW7o3fHADbRDCBuM5hGHp
 
 
 
