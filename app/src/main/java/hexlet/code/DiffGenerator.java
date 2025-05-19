@@ -1,55 +1,52 @@
 package hexlet.code;
 
-
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.HashMap;
-
-import java.util.List;
-
 import java.util.Set;
 import java.util.TreeSet;
-
 import java.util.stream.Collectors;
 
 public class DiffGenerator {
-    public static List<Map<String, Object>> generateDiff(Map<String, Object> data1, Map<String, Object> data2) {
+    public static Map<String, Map<String, Object>> generateDiff(Map<String, Object> data1, Map<String, Object> data2) {
 
         Set<String> keys = getKeys(data1, data2);
 
-        var diff = keys.stream()
-                .map(key -> {
+        return keys.stream()
+                .collect(Collectors.toMap(key -> key, key -> {
 
                     if (!data1.containsKey(key)) {
-                        return getDataValue(key, "added", data2.get(key));
+                        return getDataValue("added", data2.get(key));
                     } else if (!data2.containsKey(key)) {
-                        return getDataValue(key, "removed", data1.get(key));
+                        return getDataValue("removed", data1.get(key));
                     }
 
                     String valueOfData1 = String.valueOf(data1.get(key));
                     String valueOfData2 = String.valueOf(data2.get(key));
 
                     if (valueOfData1.equals(valueOfData2)) {
-                        return getDataValue(key, "unchanged", data1.get(key));
+                        return getDataValue("unchanged", data1.get(key));
                     }
 
-                    return getDataValue(key, "changed", data1.get(key), data2.get(key));
+                    return getDataValue("changed", data1.get(key), data2.get(key));
 
-                })
-                .collect(Collectors.toList());
-        return diff;
+                }));
     }
 
-    private static Map<String, Object> getDataValue(Object key, Object status, Object value) {
-        Map<String, Object> dataValue = new HashMap<>();
-        dataValue.put("key", key);
+    private static Map<String, Object> getDataValue(Object status, Object value) {
+        Map<String, Object> dataValue = new LinkedHashMap<>();
         dataValue.put("status", status);
-        dataValue.put("value1", value);
+        if ("changed".equals(status)) {
+            dataValue.put("fromValue", value);
+        } else {
+            dataValue.put("value", value);
+        }
+
         return dataValue;
     }
 
-    private static Map<String, Object> getDataValue(Object key, Object status, Object value1, Object value2) {
-        Map<String, Object> dataValue = getDataValue(key, status, value1);
-        dataValue.put("value2", value2);
+    private static Map<String, Object> getDataValue(Object status, Object value1, Object value2) {
+        Map<String, Object> dataValue = getDataValue(status, value1);
+        dataValue.put("toValue", value2);
         return dataValue;
     }
 
