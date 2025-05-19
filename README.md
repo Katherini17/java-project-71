@@ -16,6 +16,7 @@
 ### Flat files (default - stylish)
 Asciinema flat-differ-of-json-files: 
 https://asciinema.org/a/LsQTu3eu4AmX9k9PRMXJgdqbM
+
 Asciinema flat-differ-of-yaml-files: 
 https://asciinema.org/a/3zYCTemVJX9x8iGNocukZRq22
 
