@@ -70,4 +70,20 @@ class AppTest {
         assertEquals(expectedDiff, actualDiff);
     }
 
+    @Test
+    void testJsonDiffGenerationInJson() throws Exception {
+        String expectedDiff = readFixtures("json-diff.txt");
+        String actualDiff = Differ.generate(jsonFilePath1.toString(), jsonFilePath2.toString(), "json");
+
+        assertEquals(expectedDiff, actualDiff);
+    }
+
+    @Test
+    void testYamlDiffGenerationInJson() throws Exception {
+        String expectedDiff = readFixtures("json-diff.txt");
+        String actualDiff = Differ.generate(yamlFilePath1.toString(), yamlFilePath2.toString(), "json");
+
+        assertEquals(expectedDiff, actualDiff);
+    }
+
 }
