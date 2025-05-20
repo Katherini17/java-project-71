@@ -20,7 +20,7 @@ public class PlainFormatter {
 
                     switch (status) {
                         case "added":
-                            return String.format("Property %s was added with value1: %s",
+                            return String.format("Property %s was added with value: %s",
                                     formattedkey, value1);
                         case "removed":
                             return String.format("Property %s was removed", formattedkey);
