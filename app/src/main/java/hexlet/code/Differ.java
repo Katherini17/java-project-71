@@ -12,9 +12,8 @@ public class Differ {
         Map<String, Object> data1 = getData(filePath1);
         Map<String, Object> data2 = getData(filePath2);
         Map<String, Map<String, Object>> diff = generateDiff(data1, data2);
-        String formattedDiff = format(diff, formatName);
 
-        return formattedDiff;
+        return format(diff, formatName);
     }
 
     public static String generate(String filePath1, String filePath2) throws Exception {
