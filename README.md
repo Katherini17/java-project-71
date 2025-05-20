@@ -31,7 +31,4 @@ https://asciinema.org/a/lYdalnS5ktneVvcXHQTGPetS0
 
 ### Nested files (json)
 Asciinema nested-json-differ:
-https://asciinema.org/a/ySvWvW7o3fHADbRDCBuM5hGHp
-
-
-
+https://asciinema.org/a/eOvUJGpVgBBRLKDhac8AenjGV

@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
+import java.util.HashSet;
 import java.util.stream.Collectors;
 
 public class DiffGenerator {
@@ -51,7 +51,7 @@ public class DiffGenerator {
     }
 
     private static Set<String> getKeys(Map<String, Object> data1, Map<String, Object> data2) {
-        Set<String> keys = new TreeSet<>(data1.keySet());
+        Set<String> keys = new HashSet<>(data1.keySet());
         keys.addAll(data2.keySet());
 
         return keys;
