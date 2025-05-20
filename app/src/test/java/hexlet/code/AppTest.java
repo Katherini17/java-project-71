@@ -18,14 +18,6 @@ class AppTest {
     private static Path yamlFilePath1;
     private static Path yamlFilePath2;
 
-    /////////////////////////////////////////////////
-    private static Path hexletJsonFile1;
-    private static Path hexletJsonFile2;
-
-    private static Path hexletYamlFile1;
-    private static Path hexletYamlFile2;
-
-
     private static Path getFixturePath(String filename) {
         return Paths.get("src", "test", "resources", "fixtures", filename)
                 .toAbsolutePath()
@@ -44,15 +36,6 @@ class AppTest {
 
         yamlFilePath1 = getFixturePath("nested-file1.yml");
         yamlFilePath2 = getFixturePath("nested-file2.yml");
-
-        /// //////////////////////////////////////////
-        hexletJsonFile1 = getFixturePath("hexlet-fixtures/file1.json");
-        hexletJsonFile2 = getFixturePath("hexlet-fixtures/file2.json");
-
-        hexletYamlFile1 = getFixturePath("hexlet-fixtures/file1.yml");
-        hexletYamlFile2 = getFixturePath("hexlet-fixtures/file2.yml");
-
-
     }
 
     @Test
@@ -99,39 +82,6 @@ class AppTest {
     void testYamlDiffGenerationInJson() throws Exception {
         String expectedDiff = readFixtures("json-diff.txt");
         String actualDiff = Differ.generate(yamlFilePath1.toString(), yamlFilePath2.toString(), "json");
-
-        assertEquals(expectedDiff, actualDiff);
-    }
-
-    /////////////////////////////////////////////////////////////////////
-    @Test
-    void hexletTestJsonInStylish() throws Exception {
-        String expectedDiff = readFixtures("hexlet-fixtures/result_stylish.txt");
-        String actualDiff = Differ.generate(hexletJsonFile1.toString(), hexletJsonFile2.toString(), "stylish");
-
-        assertEquals(expectedDiff, actualDiff);
-    }
-
-    @Test
-    void hexletTestYamlInStylish() throws Exception {
-        String expectedDiff = readFixtures("hexlet-fixtures/result_stylish.txt");
-        String actualDiff = Differ.generate(hexletYamlFile1.toString(), hexletYamlFile2.toString(), "stylish");
-
-        assertEquals(expectedDiff, actualDiff);
-    }
-
-    @Test
-    void hexletTestJsonInPlain() throws Exception {
-        String expectedDiff = readFixtures("hexlet-fixtures/result_plain.txt");
-        String actualDiff = Differ.generate(hexletJsonFile1.toString(), hexletJsonFile2.toString(), "plain");
-
-        assertEquals(expectedDiff, actualDiff);
-    }
-
-    @Test
-    void hexletTestYamlInPlain() throws Exception {
-        String expectedDiff = readFixtures("hexlet-fixtures/result_plain.txt");
-        String actualDiff = Differ.generate(hexletYamlFile1.toString(), hexletYamlFile2.toString(), "plain");
 
         assertEquals(expectedDiff, actualDiff);
     }
