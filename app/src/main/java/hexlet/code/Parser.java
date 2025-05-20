@@ -11,20 +11,16 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
-class Parser {
-
+public class Parser {
     private static ObjectMapper objectMapper;
-
     public static Map<String, Object> getData(String filePath) throws Exception {
         String stringData = readFile(filePath);
         setObjectMapper(filePath);
-
         return objectMapper.readValue(stringData, new TypeReference<>() { });
     }
 
     private static void setObjectMapper(String filePath) throws Exception {
         String extension = getFileExtension(filePath);
-
         switch (extension) {
             case "json":
                 objectMapper = new ObjectMapper();
