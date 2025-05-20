@@ -8,7 +8,7 @@ import static hexlet.code.Parser.getData;
 
 public class Differ {
 
-    public static String generate(String filePath1, String filePath2, String formatName) throws Exception {
+    static String generate(String filePath1, String filePath2, String formatName) throws Exception {
         Map<String, Object> data1 = getData(filePath1);
         Map<String, Object> data2 = getData(filePath2);
         Map<String, Map<String, Object>> diff = generateDiff(data1, data2);
@@ -17,7 +17,7 @@ public class Differ {
         return formattedDiff;
     }
 
-    public static String generate(String filePath1, String filePath2) throws Exception {
+    static String generate(String filePath1, String filePath2) throws Exception {
         return generate(filePath1, filePath2, "stylish");
     }
 

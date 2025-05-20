@@ -6,9 +6,9 @@ import static hexlet.code.formatters.JsonFormatter.formatJson;
 import static hexlet.code.formatters.PlainFormatter.formatPlain;
 import static hexlet.code.formatters.StylishFormatter.formatStylish;
 
-public class Formatter {
+class Formatter {
 
-    public static String format(Map<String, Map<String, Object>> diff, String formatName) throws Exception {
+    static String format(Map<String, Map<String, Object>> diff, String formatName) throws Exception {
         switch (formatName) {
             case "stylish":
                 return formatStylish(diff);

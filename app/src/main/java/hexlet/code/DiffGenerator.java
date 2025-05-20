@@ -6,8 +6,8 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-public class DiffGenerator {
-    public static Map<String, Map<String, Object>> generateDiff(Map<String, Object> data1, Map<String, Object> data2) {
+class DiffGenerator {
+    static Map<String, Map<String, Object>> generateDiff(Map<String, Object> data1, Map<String, Object> data2) {
 
         Set<String> keys = getKeys(data1, data2);
 
