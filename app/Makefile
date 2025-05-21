@@ -1,5 +1,7 @@
+install:
+	./gradlew installDist
 run-dist:
-	./build/install/app/bin/app
+	./build/install/app/bin/app $(ARGS)
 
 clean:
 	./gradlew clean
