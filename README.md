@@ -20,9 +20,9 @@ two configuration files (JSON or YAML) and outputs the differences
 in a human-readable format.
 
 ### Output Styles:
-Stylish (default): Presents the differences in a nested, human-readable format.
-Plain: Provides a simplified, text-based output.
-JSON: Outputs the differences as a JSON object.
+* Stylish (default): Presents the differences in a nested, human-readable format.
+* Plain: Provides a simplified, text-based output.
+* JSON: Outputs the differences as a JSON object.
 
 ### Prerequisites:
 * JDK 17 or higher
@@ -55,7 +55,7 @@ Where:
 
 ### Command-Line Options:
 
-`-f, --format <format>`: Specifies the output format. Valid values are `stylish`, `plain`, and `json`. Defaults to `stylish`.
+`-f, --format <format>`: Specifies the output format. Valid values are `stylish` (default), `plain`, and `json`.
 
 ## Examples:
 
