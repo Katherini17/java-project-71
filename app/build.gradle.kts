@@ -1,5 +1,4 @@
 plugins {
-    id("java")
     id("com.github.ben-manes.versions") version "0.52.0"
     id("org.sonarqube") version "6.0.1.5171"
     application
@@ -50,7 +49,6 @@ dependencies {
     implementation("info.picocli:picocli:4.7.7")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.19.0")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.1")
-    implementation("org.projectlombok:lombok:1.16.16")
 }
 
 tasks.test {
