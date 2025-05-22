@@ -2,12 +2,11 @@ package hexlet.code.formatters;
 
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public class StylishFormatter {
     public static String formatStylish(Map<String, Map<String, Object>> diff) {
-        Set<String> keys = new TreeSet<>(diff.keySet());
+        Set<String> keys = diff.keySet();
         String diffLine = keys.stream()
                 .map(key -> {
                     Map<String, Object> valueData = diff.get(key);

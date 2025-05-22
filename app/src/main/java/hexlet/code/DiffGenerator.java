@@ -1,9 +1,11 @@
 package hexlet.code;
 
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.Set;
-import java.util.HashSet;
+
 import java.util.stream.Collectors;
 
 public class DiffGenerator {
@@ -11,25 +13,24 @@ public class DiffGenerator {
 
         Set<String> keys = getKeys(data1, data2);
 
-        return keys.stream()
-                .collect(Collectors.toMap(key -> key, key -> {
+        return keys.stream().collect(Collectors.toMap(key -> key, key -> {
 
-                    if (!data1.containsKey(key)) {
-                        return getDataValue("added", data2.get(key));
-                    } else if (!data2.containsKey(key)) {
-                        return getDataValue("removed", data1.get(key));
-                    }
+            if (!data1.containsKey(key)) {
+                return getDataValue("added", data2.get(key));
+            } else if (!data2.containsKey(key)) {
+                return getDataValue("removed", data1.get(key));
+            }
 
-                    String valueOfData1 = String.valueOf(data1.get(key));
-                    String valueOfData2 = String.valueOf(data2.get(key));
+            String valueOfData1 = String.valueOf(data1.get(key));
+            String valueOfData2 = String.valueOf(data2.get(key));
 
-                    if (valueOfData1.equals(valueOfData2)) {
-                        return getDataValue("unchanged", data1.get(key));
-                    }
+            if (valueOfData1.equals(valueOfData2)) {
+                return getDataValue("unchanged", data1.get(key));
+            }
 
-                    return getDataValue("changed", data1.get(key), data2.get(key));
+            return getDataValue("changed", data1.get(key), data2.get(key));
 
-                }));
+        }, (key1, key2) -> key1, TreeMap::new));
     }
 
     private static Map<String, Object> getDataValue(Object status, Object value) {

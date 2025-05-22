@@ -2,13 +2,12 @@ package hexlet.code.formatters;
 
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public class PlainFormatter {
 
     public static String formatPlain(Map<String, Map<String, Object>> diff) {
-        Set<String> keys = new TreeSet<>(diff.keySet());
+        Set<String> keys = diff.keySet();
         return keys.stream()
                 .map(key -> {
                     Map<String, Object> valueData = diff.get(key);
