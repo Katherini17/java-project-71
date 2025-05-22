@@ -1,10 +1,4 @@
 package hexlet.code;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -12,16 +6,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 public class Parser {
+
     private static ObjectMapper objectMapper;
-    public static Map<String, Object> getData(String filePath) throws Exception {
-        String stringData = readFile(filePath);
-        setObjectMapper(filePath);
-        return objectMapper.readValue(stringData, new TypeReference<>() { });
+
+    public static Map<String, Object> getData(FileData fileData) throws Exception {
+        String fileContent = fileData.getFileContent();
+        String fileExtension = fileData.getFileExtension();
+        setObjectMapper(fileExtension);
+
+        return objectMapper.readValue(fileContent, new TypeReference<>() { });
     }
 
-    private static void setObjectMapper(String filePath) throws Exception {
-        String extension = getFileExtension(filePath);
-        switch (extension) {
+    private static void setObjectMapper(String fileExtension) throws Exception {
+        switch (fileExtension) {
             case "json":
                 objectMapper = new ObjectMapper();
                 break;
@@ -34,17 +31,5 @@ public class Parser {
         }
     }
 
-    private static Path getNormalizedPath(String filepath) {
-        return Paths.get(filepath).toAbsolutePath().normalize();
-    }
 
-    private static String readFile(String filepath) throws IOException {
-        Path normalizedPath = getNormalizedPath(filepath);
-        return Files.readString(normalizedPath);
-    }
-
-    private static String getFileExtension(String filePath) {
-        return List.of(filePath.split("\\."))
-                .getLast();
-    }
 }
