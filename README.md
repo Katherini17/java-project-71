@@ -9,7 +9,7 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Katherini17_java-project-71&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Katherini17_java-project-71)
 ### Code smell:
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Katherini17_java-project-71&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Katherini17_java-project-71)
-### Bygs:
+### Bugs:
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Katherini17_java-project-71&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Katherini17_java-project-71)
 ### Duplicated lines:
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Katherini17_java-project-71&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=Katherini17_java-project-71)
